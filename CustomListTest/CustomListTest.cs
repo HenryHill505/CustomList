@@ -88,7 +88,7 @@ namespace CustomListTest
             Assert.AreEqual(value2, customList[1]);
         }
 
-        
+        //Need to implement IEnumerable or these tests will prevent the other tests from running
 
         //[TestMethod]
         //public void AddViaBrace_SingleObject_ReturnSingleObject()
@@ -98,7 +98,7 @@ namespace CustomListTest
         //    //Act
         //    CustomList<Object> customList = new CustomList<Object>() { value };
         //    //Assert
-        //    Assert.AreEqual(value, customList[0]);   
+        //    Assert.AreEqual(value, customList[0]);
         //}
 
         //[TestMethod]
@@ -121,6 +121,7 @@ namespace CustomListTest
             int value1 = 1;
             int value2 = 2;
             int value3 = 3;
+            int numberOfValues = 3;
             CustomList<int> customList = new CustomList<int>();
 
             //Act
@@ -128,9 +129,142 @@ namespace CustomListTest
             customList.Add(value2);
             customList.Add(value3);
             //Assert
+            Assert.AreEqual(numberOfValues, customList.Count());
+        }
+
+        [TestMethod]
+        public void Remove_SingleIntegerAtEnd_RemoveIntegerAtEnd()
+        {
+            //Arrange
+            int expectedCount = 2;
+            int value1 = 1;
+            int value2 = 2;
+            int removeValue = 3;
+            CustomList<int> customList = new CustomList<int>();
+
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(removeValue);
+
+            customList.Remove(removeValue);
+            //Assert
             Assert.AreEqual(value1, customList[0]);
             Assert.AreEqual(value2, customList[1]);
-            Assert.AreEqual(value3, customList[2]);
+            Assert.AreEqual(expectedCount, customList.Count());
+            
+        }
+
+        [TestMethod]
+        public void Remove_SingleIntegerAtBeginning_RemoveIntegerAtEnd()
+        {
+            //Arrange
+            int expectedCount = 2;
+            int removeValue = 1;
+            int value1 = 2;
+            int value2 = 3;
+            CustomList<int> customList = new CustomList<int>();
+
+            //Act
+            customList.Add(removeValue);
+            customList.Add(value1);
+            customList.Add(value2);
+            
+            customList.Remove(removeValue);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+            Assert.AreEqual(expectedCount, customList.Count());
+
+        }
+
+        [TestMethod]
+        public void Remove_SingleIntegerInMiddle_RemoveIntegerAtEnd()
+        {
+            //Arrange
+            int expectedCount = 2;
+            int value1 = 1;
+            int removeValue = 2;
+            int value2 = 3;
+            CustomList<int> customList = new CustomList<int>();
+
+            //Act
+            customList.Add(removeValue);
+            customList.Add(value1);
+            customList.Add(value2);
+
+            customList.Remove(removeValue);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+            Assert.AreEqual(expectedCount, customList.Count());
+        }
+
+        [TestMethod]
+        public void Remove_SingleStringAtEnd_RemoveIntegerAtEnd()
+        {
+            //Arrange
+            int expectedCount = 2;
+            string value1 = "one";
+            string value2 = "two";
+            string removeValue = "three";
+            CustomList<string> customList = new CustomList<string>();
+
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(removeValue);
+
+            customList.Remove(removeValue);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+            Assert.AreEqual(expectedCount, customList.Count());
+
+        }
+
+        [TestMethod]
+        public void Remove_SingleStringAtBeginning_RemoveIntegerAtEnd()
+        {
+            //Arrange
+            int expectedCount = 2;
+            string removeValue = "one";
+            string value1 = "two";
+            string value2 = "three";
+            CustomList<string> customList = new CustomList<string>();
+
+            //Act
+            customList.Add(removeValue);
+            customList.Add(value1);
+            customList.Add(value2);
+
+            customList.Remove(removeValue);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+            Assert.AreEqual(expectedCount, customList.Count());
+        }
+
+        [TestMethod]
+        public void Remove_SingleStringInMiddle_RemoveIntegerAtEnd()
+        {
+            //Arrange
+            int expectedCount = 2;
+            string value1 = "one";
+            string removeValue = "two";
+            string value2 = "three";
+            CustomList<string> customList = new CustomList<string>();
+
+            //Act
+            customList.Add(removeValue);
+            customList.Add(value1);
+            customList.Add(value2);
+
+            customList.Remove(removeValue);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+            Assert.AreEqual(expectedCount, customList.Count());
         }
     }
 }

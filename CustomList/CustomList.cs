@@ -9,7 +9,7 @@ namespace CustomList
     public class CustomList<T>
     {
         //member variables
-        public T[] listArray = new T[0];
+        private T[] listArray = new T[0];
 
         //accessors
         public T this [int index]
