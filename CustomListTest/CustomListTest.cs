@@ -136,6 +136,7 @@ namespace CustomListTest
         public void Remove_SingleIntegerAtEnd_RemoveIntegerAtEnd()
         {
             //Arrange
+            bool didRemoveSucceed;
             int expectedCount = 2;
             int value1 = 1;
             int value2 = 2;
@@ -147,18 +148,19 @@ namespace CustomListTest
             customList.Add(value2);
             customList.Add(removeValue);
 
-            customList.Remove(removeValue);
+            didRemoveSucceed = customList.Remove(removeValue);
             //Assert
             Assert.AreEqual(value1, customList[0]);
             Assert.AreEqual(value2, customList[1]);
             Assert.AreEqual(expectedCount, customList.Count());
-            
+            Assert.IsTrue(didRemoveSucceed);
         }
 
         [TestMethod]
-        public void Remove_SingleIntegerAtBeginning_RemoveIntegerAtEnd()
+        public void Remove_SingleIntegerAtBeginning_RemoveIntegerAtBeginning()
         {
             //Arrange
+            bool didRemoveSucceed;
             int expectedCount = 2;
             int removeValue = 1;
             int value1 = 2;
@@ -169,19 +171,20 @@ namespace CustomListTest
             customList.Add(removeValue);
             customList.Add(value1);
             customList.Add(value2);
-            
-            customList.Remove(removeValue);
+
+            didRemoveSucceed = customList.Remove(removeValue);
             //Assert
             Assert.AreEqual(value1, customList[0]);
             Assert.AreEqual(value2, customList[1]);
             Assert.AreEqual(expectedCount, customList.Count());
-
+            Assert.IsTrue(didRemoveSucceed);
         }
 
         [TestMethod]
-        public void Remove_SingleIntegerInMiddle_RemoveIntegerAtEnd()
+        public void Remove_SingleIntegerInMiddle_RemoveIntegerInMiddle()
         {
             //Arrange
+            bool didRemoveSucceed;
             int expectedCount = 2;
             int value1 = 1;
             int removeValue = 2;
@@ -193,17 +196,46 @@ namespace CustomListTest
             customList.Add(value1);
             customList.Add(value2);
 
-            customList.Remove(removeValue);
+            didRemoveSucceed = customList.Remove(removeValue);
             //Assert
             Assert.AreEqual(value1, customList[0]);
             Assert.AreEqual(value2, customList[1]);
             Assert.AreEqual(expectedCount, customList.Count());
+            Assert.IsTrue(didRemoveSucceed);
         }
 
         [TestMethod]
-        public void Remove_SingleStringAtEnd_RemoveIntegerAtEnd()
+        public void Remove_IntegerThatIsNotThere_ReturnFalseAndLeaveListAlone()
         {
             //Arrange
+            bool didRemoveSucceed;
+            int expectedCount = 3;
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            int nonExistantValue = 4;
+            CustomList<int> customList = new CustomList<int>();
+
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+
+            didRemoveSucceed = customList.Remove(nonExistantValue);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+            Assert.AreEqual(value3, customList[2]);
+            Assert.AreEqual(expectedCount, customList.Count());
+            Assert.IsFalse(didRemoveSucceed);
+        }
+    
+
+        [TestMethod]
+        public void Remove_SingleStringAtEnd_RemoveStringAtEnd()
+        {
+            //Arrange
+            bool didRemoveSucceed;
             int expectedCount = 2;
             string value1 = "one";
             string value2 = "two";
@@ -215,18 +247,19 @@ namespace CustomListTest
             customList.Add(value2);
             customList.Add(removeValue);
 
-            customList.Remove(removeValue);
+            didRemoveSucceed = customList.Remove(removeValue);
             //Assert
             Assert.AreEqual(value1, customList[0]);
             Assert.AreEqual(value2, customList[1]);
             Assert.AreEqual(expectedCount, customList.Count());
-
+            Assert.IsTrue(didRemoveSucceed);
         }
 
         [TestMethod]
-        public void Remove_SingleStringAtBeginning_RemoveIntegerAtEnd()
+        public void Remove_SingleStringAtBeginning_RemoveStringAtBeginning()
         {
             //Arrange
+            bool didRemoveSucceed;
             int expectedCount = 2;
             string removeValue = "one";
             string value1 = "two";
@@ -238,17 +271,19 @@ namespace CustomListTest
             customList.Add(value1);
             customList.Add(value2);
 
-            customList.Remove(removeValue);
+            didRemoveSucceed = customList.Remove(removeValue);
             //Assert
             Assert.AreEqual(value1, customList[0]);
             Assert.AreEqual(value2, customList[1]);
             Assert.AreEqual(expectedCount, customList.Count());
+            Assert.IsTrue(didRemoveSucceed);
         }
 
         [TestMethod]
-        public void Remove_SingleStringInMiddle_RemoveIntegerAtEnd()
+        public void Remove_SingleStringInMiddle_RemoveStringInMiddle()
         {
             //Arrange
+            bool didRemoveSucceed;
             int expectedCount = 2;
             string value1 = "one";
             string removeValue = "two";
@@ -260,11 +295,38 @@ namespace CustomListTest
             customList.Add(value1);
             customList.Add(value2);
 
-            customList.Remove(removeValue);
+            didRemoveSucceed = customList.Remove(removeValue);
             //Assert
             Assert.AreEqual(value1, customList[0]);
             Assert.AreEqual(value2, customList[1]);
             Assert.AreEqual(expectedCount, customList.Count());
+            Assert.IsTrue(didRemoveSucceed);
+        }
+
+        [TestMethod]
+        public void Remove_StringThatIsNotThere_ReturnFalseAndLeaveListAlone()
+        {
+            //Arrange
+            bool didRemoveSucceed;
+            int expectedCount = 3;
+            string value1 = "one";
+            string value2 = "two";
+            string value3 = "three";
+            string nonExistantValue = "four";
+            CustomList<string> customList = new CustomList<string>();
+
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+
+            didRemoveSucceed = customList.Remove(nonExistantValue);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+            Assert.AreEqual(value3, customList[2]);
+            Assert.AreEqual(expectedCount, customList.Count());
+            Assert.IsFalse(didRemoveSucceed);
         }
     }
 }
