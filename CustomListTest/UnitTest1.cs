@@ -88,6 +88,8 @@ namespace CustomListTest
             Assert.AreEqual(value2, customList[1]);
         }
 
+        
+
         [TestMethod]
         public void AddViaBrace_SingleObject_ReturnSingleObject()
         {
@@ -110,6 +112,24 @@ namespace CustomListTest
             //Assert
             Assert.AreEqual(value1, customList[0]);
             Assert.AreEqual(value2, customList[1]);
+        }
+
+        [TestMethod]
+        public void CountAfterAdd_MultipleIntegers_ReturnNumberOfIntegers()
+        {
+            //Arrage
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            CustomList<int> customList = new CustomListTest<int>;
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+            Assert.AreEqual(value3, customList[2]);
         }
     }
 }
