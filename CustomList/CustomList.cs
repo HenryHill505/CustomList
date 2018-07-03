@@ -11,6 +11,20 @@ namespace CustomList
         //member variables
         private T[] listArray;
 
+        //accessors
+        public T this [int index]
+        {
+            get
+            {
+                return listArray[index];
+            }
+
+            set
+            {
+                listArray[index] = value;
+            }
+        }
+
         //methods
         public void Add(T incomingElement)
         {
