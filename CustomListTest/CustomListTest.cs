@@ -328,6 +328,84 @@ namespace CustomListTest
             Assert.AreEqual(expectedCount, customList.Count());
             Assert.IsFalse(didRemoveSucceed);
         }
+
+        [TestMethod]
+        public void ToString_ThreeIntegers_CommaSeparatedString()
+        {
+            //Arrange
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            string expected = "1,2,3";
+            string actual;
+            CustomList<int> customList = new CustomList<int>();
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+            actual = customList.Join();
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ToString_ThreeStrings_CommaSeparatedString()
+        {
+            //Arrange
+            string value1 = "one";
+            string value2 = "two";
+            string value3 = "three";
+            string expected = "one,two,three";
+            string actual;
+            CustomList<string> customList = new CustomList<string>();
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+            actual = customList.Join();
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ToStringSeparatorOverride_ThreeIntegers_CommaAndSpaceSeparatedString()
+        {
+            //Arrange
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            string separator = ", ";
+            string expected = "1, 2, 3";
+            string actual;
+            CustomList<int> customList = new CustomList<int>();
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+            actual = customList.Join(separator);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void ToStringSeparatorOverride_ThreeStrings_CommaAndSpaceSeparatedString()
+        {
+            //Arrange
+            string value1 = "one";
+            string value2 = "two";
+            string value3 = "three";
+            string separator = ", ";
+            string expected = "one, two, three";
+            string actual;
+            CustomList<string> customList = new CustomList<string>();
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+            actual = customList.Join(separator);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
 
