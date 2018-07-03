@@ -9,7 +9,7 @@ namespace CustomList
     public class CustomList<T>
     {
         //member variables
-        private T[] listArray;
+        public T[] listArray = new T[0];
 
         //accessors
         public T this [int index]
@@ -28,12 +28,14 @@ namespace CustomList
         //methods
         public void Add(T incomingElement)
         {
-            T[] newArray = new T[Count()+1];
-            for (int i = 0; i < Count(); i++)
+            int currentCount = Count();
+            T[] newArray = new T[currentCount+1];
+            for (int i = 0; i < currentCount; i++)
             {
                 newArray[i] = listArray[i];
             }
-            newArray[Count()] = incomingElement;
+            newArray[currentCount] = incomingElement;
+            listArray = newArray;
         }
 
         public int Count()
