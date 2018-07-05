@@ -25,10 +25,23 @@ namespace CustomList
             }
         }
 
+        public int Count
+        {
+            get
+            {
+                int counter = 0;
+                foreach (T element in listArray)
+                {
+                    counter++;
+                }
+                return counter;
+            }
+        }
+
         //methods
         public void Add(T incomingElement)
         {
-            int currentCount = Count();
+            int currentCount = Count;
             T[] newArray = new T[currentCount+1];
             for (int i = 0; i < currentCount; i++)
             {
@@ -38,14 +51,14 @@ namespace CustomList
             listArray = newArray;
         }
 
-        public int Count()
-        {
-            int counter = 0;
-            foreach (T element in listArray)
-            {
-                counter++;
-            }
-            return counter;
-        }
+        //public int Count()
+        //{
+        //    int counter = 0;
+        //    foreach (T element in listArray)
+        //    {
+        //        counter++;
+        //    }
+        //    return counter;
+        //}
     }
 }

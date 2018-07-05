@@ -129,7 +129,7 @@ namespace CustomListTest
             customList.Add(value2);
             customList.Add(value3);
             //Assert
-            Assert.AreEqual(numberOfValues, customList.Count());
+            Assert.AreEqual(numberOfValues, customList.Count);
         }
 
         [TestMethod]
@@ -343,7 +343,7 @@ namespace CustomListTest
             customList.Add(value1);
             customList.Add(value2);
             customList.Add(value3);
-            actual = customList.Join();
+            actual = customList.ToString();
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -362,7 +362,7 @@ namespace CustomListTest
             customList.Add(value1);
             customList.Add(value2);
             customList.Add(value3);
-            actual = customList.Join();
+            actual = customList.ToString();
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -382,7 +382,7 @@ namespace CustomListTest
             customList.Add(value1);
             customList.Add(value2);
             customList.Add(value3);
-            actual = customList.Join(separator);
+            actual = customList.ToString(separator);
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -402,7 +402,7 @@ namespace CustomListTest
             customList.Add(value1);
             customList.Add(value2);
             customList.Add(value3);
-            actual = customList.Join(separator);
+            actual = customList.ToString(separator);
             //Assert
             Assert.AreEqual(expected, actual);
         }
