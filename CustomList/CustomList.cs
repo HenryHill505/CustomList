@@ -101,6 +101,11 @@ namespace CustomList
             }
             return output.ToString();
         }
+
+        public string Zip(CustomList<T> zipList)
+        {
+
+        }
     }
 
     public class CustomListEnumerator<T> :  IEnumerator<T>
