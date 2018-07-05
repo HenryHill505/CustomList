@@ -86,6 +86,11 @@ namespace CustomList
             }
             return false;
         }
+
+        public string ToString(string separator)
+        {
+
+        }
     }
 
     public class CustomListEnumerator<T> :  IEnumerator<T>
