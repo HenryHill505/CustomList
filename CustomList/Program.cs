@@ -11,6 +11,20 @@ namespace CustomList
         static void Main(string[] args)
         {
             List<int> testList = new List<int>();
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(1);
+            foreach (int item in testList)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Remove");
+            testList.Remove(1);
+            foreach (int item in testList)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadLine();
         }
     }
 }

@@ -54,6 +54,22 @@ namespace CustomList
         public void Remove(T targetElement)
         {
             int currentCount = Count;
+            T[] newArray = new T[currentCount - 1];
+            for (int i = 0; i< currentCount; i++)
+            {
+                if (listArray[i].Equals(targetElement))
+                {
+                    for (int j = 0; j < i j++)
+                    {
+                        newArray[j] = listArray[j];
+                    }
+                    for (int j = i+1; j < currentCount; j++)
+                    {
+                        newArray[j - 1] = listArray[j];
+                    }
+                    listArray = newArray;
+                }
+            }
         }
 
         //public int Count()
