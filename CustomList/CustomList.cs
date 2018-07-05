@@ -51,6 +51,11 @@ namespace CustomList
             listArray = newArray;
         }
 
+        public void Remove(T targetElement)
+        {
+            int currentCount = Count;
+        }
+
         //public int Count()
         //{
         //    int counter = 0;
