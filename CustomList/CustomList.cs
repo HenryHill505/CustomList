@@ -51,7 +51,7 @@ namespace CustomList
             listArray = newArray;
         }
 
-        public void Remove(T targetElement)
+        public bool Remove(T targetElement)
         {
             int currentCount = Count;
             T[] newArray = new T[currentCount - 1];
@@ -59,7 +59,7 @@ namespace CustomList
             {
                 if (listArray[i].Equals(targetElement))
                 {
-                    for (int j = 0; j < i j++)
+                    for (int j = 0; j < i; j++)
                     {
                         newArray[j] = listArray[j];
                     }
@@ -68,8 +68,10 @@ namespace CustomList
                         newArray[j - 1] = listArray[j];
                     }
                     listArray = newArray;
+                    return true;
                 }
             }
+            return false;
         }
 
         //public int Count()
