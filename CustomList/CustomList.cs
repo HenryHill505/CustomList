@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable<T>
     {
         //member variables
         private T[] listArray = new T[0];
 
         //accessors
-        public T this [int index]
+        public T this[int index]
         {
             get
             {
@@ -42,7 +43,7 @@ namespace CustomList
         public void Add(T incomingElement)
         {
             int currentCount = Count;
-            T[] newArray = new T[currentCount+1];
+            T[] newArray = new T[currentCount + 1];
             for (int i = 0; i < currentCount; i++)
             {
                 newArray[i] = listArray[i];
@@ -51,11 +52,23 @@ namespace CustomList
             listArray = newArray;
         }
 
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            //return listArray.GetEnumerator();
+            return new CustomListEnumerator<T>(this);
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
         public bool Remove(T targetElement)
         {
             int currentCount = Count;
             T[] newArray = new T[currentCount - 1];
-            for (int i = 0; i< currentCount; i++)
+            for (int i = 0; i < currentCount; i++)
             {
                 if (listArray[i].Equals(targetElement))
                 {
@@ -63,7 +76,7 @@ namespace CustomList
                     {
                         newArray[j] = listArray[j];
                     }
-                    for (int j = i+1; j < currentCount; j++)
+                    for (int j = i + 1; j < currentCount; j++)
                     {
                         newArray[j - 1] = listArray[j];
                     }
@@ -73,15 +86,61 @@ namespace CustomList
             }
             return false;
         }
+    }
 
-        //public int Count()
-        //{
-        //    int counter = 0;
-        //    foreach (T element in listArray)
-        //    {
-        //        counter++;
-        //    }
-        //    return counter;
-        //}
+    public class CustomListEnumerator<T> :  IEnumerator<T>
+    {
+        CustomList<T> parentList;
+        public int currentIndex = -1;
+
+        public CustomListEnumerator(CustomList<T> customList)
+        {
+            parentList = customList;
+        }
+
+
+        public T Current
+        {
+            get
+            {
+                try
+                {
+                    return parentList[currentIndex];
+                }
+                catch
+                {
+                    throw new InvalidOperationException();
+                }
+            }
+        }
+
+        object IEnumerator.Current
+        {
+            get { return Current; }
+        }
+
+
+        public bool MoveNext()
+        {
+            currentIndex++;
+            if (currentIndex < parentList.Count)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void Dispose()
+        {
+            
+        }
+
+        public void Reset()
+        {
+            currentIndex = -1;
+        }
     }
 }

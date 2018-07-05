@@ -90,29 +90,74 @@ namespace CustomListTest
 
         //Need to implement IEnumerable or these tests will prevent the other tests from running
 
-        //[TestMethod]
-        //public void AddViaBrace_SingleObject_ReturnSingleObject()
-        //{
-        //    //Arrange
-        //    Object value = new object();
-        //    //Act
-        //    CustomList<Object> customList = new CustomList<Object>() { value };
-        //    //Assert
-        //    Assert.AreEqual(value, customList[0]);
-        //}
+        [TestMethod]
+        public void AddViaBrace_SingleString_ReturnSingleString()
+        {
+            //Arrange
+            string value = "one";
+            //Act
+            CustomList<string> customList = new CustomList<string>() { value };
+            //Assert
+            Assert.AreEqual(value, customList[0]);
+        }
 
-        //[TestMethod]
-        //public void AddViaBrace_TwoObjects_ReturnBothObjects()
-        //{
-        //    //Arrange
-        //    Object value1 = new object();
-        //    Object value2 = new object();
-        //    //Act
-        //    CustomList<Object> customList = new CustomList<Object>() { value1, value2 };
-        //    //Assert
-        //    Assert.AreEqual(value1, customList[0]);
-        //    Assert.AreEqual(value2, customList[1]);
-        //}
+        [TestMethod]
+        public void AddViaBrace_TwoStrings_ReturnBothStrings()
+        {
+            //Arrange
+            string value1 = "one";
+            string value2 = "two";
+            //Act
+            CustomList<string> customList = new CustomList<string>() { value1, value2 };
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+        }
+
+        [TestMethod]
+        public void AddViaBrace_SingleInteger_ReturnSingleInteger()
+        {
+            //Arrange
+            int value = 1;
+            //Act
+            CustomList<int> customList = new CustomList<int>() { value };
+            //Assert
+            Assert.AreEqual(value, customList[0]);
+        }
+
+        [TestMethod]
+        public void AddViaBrace_TwoIntegers_ReturnBothIntegers()
+        {
+            //Arrange
+            int value1 = 1;
+            int value2 = 2;
+            //Act
+            CustomList<int> customList = new CustomList<int>() { value1, value2 };
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+        }
+
+        [TestMethod]
+        public void Iterate_MultipleIntegers_CheckEachIndex()
+        {
+            //Arrange
+            int value1 = 1;
+            int value2 = 2;
+            int value3 = 3;
+            int valueCounter = 1;
+            CustomList<int> customList = new CustomList<int>();
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+            //Assert
+            foreach (int value in customList)
+            {
+                Assert.AreEqual(valueCounter, value);
+                valueCounter++;
+            }
+        } 
 
         [TestMethod]
         public void CountAfterAdd_MultipleIntegers_ReturnNumberOfIntegers()
