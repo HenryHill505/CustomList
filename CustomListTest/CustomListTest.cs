@@ -914,7 +914,7 @@ namespace CustomListTest
 
         [TestMethod]
 
-        public void Zip_TwoEqualLengthListsOfIntegers_CountEqualToCountOfZippedStrings()
+        public void Zip_TwoEqualLengthListsOfIntegers_CountEqualToCountOfZippedLists()
         {
             //Arrange
             CustomList<int> customList1 = new CustomList<int>() { 1, 3, 5 };
@@ -936,16 +936,16 @@ namespace CustomListTest
             //Act
             resultList = customList1.Zip(customList2);
             //Assert
-            for (int i = 0; i < resultList.Count; i+=2)
+            for (int i = 0; i < resultList.Count; i += 2)
             {
-                Assert.AreEqual(customList1[i/2], resultList[i]);
-                Assert.AreEqual(customList2[i/2], resultList[i + 1]);
+                Assert.AreEqual(customList1[i / 2], resultList[i]);
+                Assert.AreEqual(customList2[i / 2], resultList[i + 1]);
             }
         }
 
         [TestMethod]
 
-        public void Zip_TwoEqualLengthListsOfStrings_CountEqualToCountOfZippedStrings()
+        public void Zip_TwoEqualLengthListsOfStrings_CountEqualToCountOfZippedLists()
         {
             //Arrange
             CustomList<string> customList1 = new CustomList<string>() { "one", "three", "five" };
@@ -978,7 +978,7 @@ namespace CustomListTest
 
         [TestMethod]
 
-        public void Zip_TwoUnequalLengthListsOfIntegers_CountEqualToCountOfZippedStrings()
+        public void Zip_ListsOfIntegersFirstListIsLonger_CountEqualToCountOfZippedLists()
         {
             //Arrange
             CustomList<int> customList1 = new CustomList<int>() { 1, 3, 5, 7 };
@@ -993,7 +993,50 @@ namespace CustomListTest
 
         [TestMethod]
 
-        public void Zip_TwoUnequalLengthListsOfStrings_CountEqualToCountOfZippedStrings()
+        public void Zip_ListsOfIntegersFirstListIsLonger_LastElementIsCorrect()
+        {
+            //Arrange
+            CustomList<int> customList1 = new CustomList<int>() { 1, 3, 5, 7 };
+            CustomList<int> customList2 = new CustomList<int>() { 2, 4, 6 };
+            CustomList<int> resultList;
+            //Act
+            resultList = customList1.Zip(customList2);
+            //Assert
+            Assert.AreEqual(7, resultList[6]);
+        }
+
+        [TestMethod]
+
+        public void Zip_ListsOfIntegersSecondListIsLonger_CountEqualToCountOfZippedLists()
+        {
+            //Arrange
+            CustomList<int> customList1 = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> customList2 = new CustomList<int>() { 2, 4, 6, 7 };
+            CustomList<int> resultList;
+            int expectedCount = 7;
+            //Act
+            resultList = customList1.Zip(customList2);
+            //Assert
+            Assert.AreEqual(expectedCount, resultList.Count);
+        }
+
+        [TestMethod]
+
+        public void Zip_ListsOfIntegersSecondListIsLonger_LastElementIsCorrect()
+        {
+            //Arrange
+            CustomList<int> customList1 = new CustomList<int>() { 1, 3, 5 };
+            CustomList<int> customList2 = new CustomList<int>() { 2, 4, 6, 7 };
+            CustomList<int> resultList;
+            //Act
+            resultList = customList1.Zip(customList2);
+            //Assert
+            Assert.AreEqual(7, resultList[6]);
+        }
+
+        [TestMethod]
+
+        public void Zip_ListsOfStringsFirstListIsLonger_CountEqualToCountOfZippedLists()
         {
             //Arrange
             CustomList<string> customList1 = new CustomList<string>() { "one", "three", "five", "seven" };
@@ -1004,6 +1047,50 @@ namespace CustomListTest
             resultList = customList1.Zip(customList2);
             //Assert
             Assert.AreEqual(expectedCount, resultList.Count);
+        }
+
+        [TestMethod]
+
+        public void Zip_ListsOfStringsFirstListIsLonger_LastElementIsCorrect()
+        {
+            //Arrange
+            CustomList<string> customList1 = new CustomList<string>() { "one", "three", "five", "seven" };
+            CustomList<string> customList2 = new CustomList<string>() { "two", "four", "six" };
+            CustomList<string> resultList;
+            //Act
+            resultList = customList1.Zip(customList2);
+            //Assert
+            Assert.AreEqual("seven", resultList[6]);
+        }
+
+        [TestMethod]
+
+        public void Zip_ListsOfStringsSecondListIsLonger_CountEqualToCountOfZippedLists()
+        {
+            //Arrange
+            CustomList<string> customList1 = new CustomList<string>() { "one", "three", "five" };
+            CustomList<string> customList2 = new CustomList<string>() { "two", "four", "six", "seven" };
+            CustomList<string> resultList;
+            int expectedCount = 7;
+            //Act
+            resultList = customList1.Zip(customList2);
+            //Assert
+            Assert.AreEqual(expectedCount, resultList.Count);
+        }
+
+        [TestMethod]
+
+        public void Zip_ListsOfStringsSecondListIsLonger_LastElementIsCorrect()
+        {
+            //Arrange
+            CustomList<string> customList1 = new CustomList<string>() { "one", "three", "five" };
+            CustomList<string> customList2 = new CustomList<string>() { "two", "four", "six", "seven" };
+            CustomList<string> resultList;
+            int expectedCount = 7;
+            //Act
+            resultList = customList1.Zip(customList2);
+            //Assert
+            Assert.AreEqual("seven", resultList[6]);
         }
     }
 }

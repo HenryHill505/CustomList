@@ -89,7 +89,17 @@ namespace CustomList
 
         public string ToString(string separator)
         {
-
+            StringBuilder output = new StringBuilder();
+            int currentCount = Count;
+            for (int i = 0; i < currentCount; i++)
+            {
+                output.Append(listArray[i]);
+                if (i + 1 < currentCount)
+                {
+                    output.Append(separator);
+                }
+            }
+            return output.ToString();
         }
     }
 
@@ -103,19 +113,11 @@ namespace CustomList
             parentList = customList;
         }
 
-
         public T Current
         {
             get
             {
-                try
-                {
-                    return parentList[currentIndex];
-                }
-                catch
-                {
-                    throw new InvalidOperationException();
-                }
+                return parentList[currentIndex];
             }
         }
 
@@ -123,7 +125,6 @@ namespace CustomList
         {
             get { return Current; }
         }
-
 
         public bool MoveNext()
         {
