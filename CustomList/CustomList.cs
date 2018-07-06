@@ -118,6 +118,54 @@ namespace CustomList
             return false;
         }
 
+        public CustomList<int> Sort()
+        {
+            //Uses QuickSort with the Lomuto partition scheme
+            CustomList<int> sortList = new CustomList<int>();
+            for (int i = 0; i < this.Count; i++)
+            {
+                string currentValue = this[i].ToString();
+                sortList.Add(int.Parse(currentValue));
+            }
+
+            QuickSort(sortList, 0, this.Count - 1);
+            return sortList;
+        }
+
+        public void QuickSort(CustomList<int> List, int lo, int hi)
+        {
+            if (lo < hi)
+            {
+                int currentPivot = Partition(List, lo, hi);
+                QuickSort(List, lo, currentPivot - 1);
+                QuickSort(List, currentPivot + 1, hi);
+            }
+        }
+
+        public int Partition(CustomList<int> List, int lo, int hi)
+        {
+            int pivot = List[hi];
+            int index = lo - 1;
+            for (int j = lo; j <= hi -1; j++)
+            {
+                if (List[j] < pivot)
+                {
+                    index++;
+                    int holder1 = List[index];
+                    int holder2 = List[j];
+
+                    List[index] = holder2;
+                    List[j] = holder1;
+                }
+            }
+            int outerHolder1 = List[index + 1];
+            int outerHolder2 = List[hi];
+
+            List[index + 1] = outerHolder2;
+            List[hi] = outerHolder1;
+            return index + 1;
+        }
+
         public string ToString(string separator)
         {
             StringBuilder output = new StringBuilder();

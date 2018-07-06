@@ -31,22 +31,35 @@ namespace CustomList
             //Console.WriteLine(joinedString);
             //Console.ReadLine();
 
-            CustomList<int> minuendList = new CustomList<int> { 1, 2, 3 };
-            CustomList<int> subtrahendList = new CustomList<int> { 2 };
-            CustomList<int> differenceList;
+            //CustomList<int> minuendList = new CustomList<int> { 1, 2, 3 };
+            //CustomList<int> subtrahendList = new CustomList<int> { 2 };
+            //CustomList<int> differenceList;
 
-            differenceList = minuendList - subtrahendList;
+            //differenceList = minuendList - subtrahendList;
 
-            foreach (int element in differenceList)
+            //foreach (int element in differenceList)
+            //{
+            //    Console.WriteLine(element);
+            //}
+            //Console.ReadLine();
+            ///*
+            //    Console Output:
+            //    1
+            //    3
+            //*/
+
+            CustomList<int> customList = new CustomList<int>() {2, 5, 8, 3, 9, 1, 6, 7, 4, 9 };
+            foreach (int element in customList)
+            {
+                Console.WriteLine(element);
+            }
+            Console.WriteLine("Sort Now");
+            CustomList<int> sortedList = customList.Sort();
+            foreach (int element in sortedList)
             {
                 Console.WriteLine(element);
             }
             Console.ReadLine();
-            /*
-                Console Output:
-                1
-                3
-            */
         }
     }
 }
