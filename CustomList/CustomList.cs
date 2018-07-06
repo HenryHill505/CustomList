@@ -79,6 +79,11 @@ namespace CustomList
             return newList;
         }
 
+        public static CustomList<T> operator-(CustomList<T> customList1, CustomList<T> customList2)
+        {
+
+        }
+
         public bool Remove(T targetElement)
         {
             int currentCount = Count;
