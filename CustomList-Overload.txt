@@ -1,0 +1,47 @@
+CUSTOMLIST<T> - METHOD
+
+SYNTAX
+
+public static CustomList<T> operator-(
+	CustomList<T> minuendList
+	CustomList<T> subtrahendList
+)
+
+PARAMETERS
+
+minuendList
+	Type: CustomerList<T>
+	The list from which values will be removed. All remaining values will be returned in a new list
+
+subtrahendList
+	Type: CustomList<T>
+	Any values contained in this list will be removed from the minuendList
+	
+Return Value
+Type: CustomList<T>
+A list containing all values from minuendList that were not also in subtrahendList
+
+EXAMPLE
+
+public class Example
+{
+	public static void Main()
+	{
+		CustomList<int> minuendList = new CustomList<int> {1, 2, 3};
+		CustomList<int> subtrahendList = new CustomList<int> {2};
+		CustomList<int> differenceList;
+		
+		differenceList = minuendList - subtrahendList;
+		
+		foreach (int element in differenceList)
+		{
+			Console.WriteLine(element);
+		}
+		Console.ReadLine();
+		/*
+			Console Output:
+			1
+			3
+		*/
+	}
+}

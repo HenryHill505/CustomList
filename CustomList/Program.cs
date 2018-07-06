@@ -26,10 +26,27 @@ namespace CustomList
             //}
             //Console.ReadLine();
 
-            string[] testArray = { "one", "two", "three" };
-            string joinedString = string.Join(",", testArray);
-            Console.WriteLine(joinedString);
+            //string[] testArray = { "one", "two", "three" };
+            //string joinedString = string.Join(",", testArray);
+            //Console.WriteLine(joinedString);
+            //Console.ReadLine();
+
+            CustomList<int> minuendList = new CustomList<int> { 1, 2, 3 };
+            CustomList<int> subtrahendList = new CustomList<int> { 2 };
+            CustomList<int> differenceList;
+
+            differenceList = minuendList - subtrahendList;
+
+            foreach (int element in differenceList)
+            {
+                Console.WriteLine(element);
+            }
             Console.ReadLine();
+            /*
+                Console Output:
+                1
+                3
+            */
         }
     }
 }
