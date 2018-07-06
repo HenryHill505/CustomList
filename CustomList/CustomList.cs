@@ -64,9 +64,19 @@ namespace CustomList
             return GetEnumerator();
         }
 
-        public static CustomList<T> operator+(CustomList<T> customList1,CustomList<T> customList3)
+        public static CustomList<T> operator+(CustomList<T> customList1,CustomList<T> customList2)
         {
+            CustomList<T> newList = new CustomList<T>();
 
+            for (int i = 0; i < customList1.Count; i++)
+            {
+                newList.Add(customList1[i]);
+            }
+            for (int i = 0; i < customList2.Count; i++)
+            {
+                newList.Add(customList2[i]);
+            }
+            return newList;
         }
 
         public bool Remove(T targetElement)

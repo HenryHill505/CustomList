@@ -188,7 +188,7 @@ namespace CustomListTest
             //Act
             sumList = customList1 + customList2;
             //Assert
-            Assert.AreEqual(expectedCount, resultList.Count);
+            Assert.AreEqual(expectedCount, sumList.Count);
         }
 
         [TestMethod]
@@ -203,8 +203,8 @@ namespace CustomListTest
             //Assert
             for (int i = 0; i <= 2; i++)
             {
-                Assert.AreEqual(customList1[i], resultList[i]);
-                Assert.AreEqual(customList2[i], resultList[i+3]);
+                Assert.AreEqual(customList1[i], sumList[i]);
+                Assert.AreEqual(customList2[i], sumList[i+3]);
             }
         }
 
@@ -219,7 +219,7 @@ namespace CustomListTest
             //Act
             sumList = customList1 + customList2;
             //Assert
-            Assert.AreEqual(expectedCount, resultList.Count);
+            Assert.AreEqual(expectedCount, sumList.Count);
         }
 
         [TestMethod]
@@ -232,7 +232,7 @@ namespace CustomListTest
             //Act
             sumList = customList1 + customList2;
             //Assert
-            Assert.AreEqual(9, resultList[8]);
+            Assert.AreEqual(9, sumList[8]);
         }
 
         [TestMethod]
@@ -246,7 +246,7 @@ namespace CustomListTest
             //Act
             sumList = customList1 + customList2;
             //Assert
-            Assert.AreEqual(expectedCount, resultList.Count);
+            Assert.AreEqual(expectedCount, sumList.Count);
         }
 
         [TestMethod]
@@ -261,8 +261,8 @@ namespace CustomListTest
             //Assert
             for (int i = 0; i <= 2; i++)
             {
-                Assert.AreEqual(customList1[i], resultList[i]);
-                Assert.AreEqual(customList2[i], resultList[i + 3]);
+                Assert.AreEqual(customList1[i], sumList[i]);
+                Assert.AreEqual(customList2[i], sumList[i + 3]);
             }
         }
 
@@ -277,7 +277,7 @@ namespace CustomListTest
             //Act
             sumList = customList1 + customList2;
             //Assert
-            Assert.AreEqual(expectedCount, resultList.Count);
+            Assert.AreEqual(expectedCount, sumList.Count);
         }
 
         [TestMethod]
@@ -290,7 +290,7 @@ namespace CustomListTest
             //Act
             sumList = customList1 + customList2;
             //Assert
-            Assert.AreEqual("nine", resultList[8]);
+            Assert.AreEqual("nine", sumList[8]);
         }
 
         [TestMethod]
