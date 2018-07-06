@@ -79,9 +79,20 @@ namespace CustomList
             return newList;
         }
 
-        public static CustomList<T> operator-(CustomList<T> customList1, CustomList<T> customList2)
+        public static CustomList<T> operator-(CustomList<T> minuendList, CustomList<T> subtrahendList)
         {
-
+            CustomList<T> newList = new CustomList<T>();
+            bool beKept;
+            for (int i = 0; i < minuendList.Count; i++)
+            {
+                beKept = true;
+                for (int j = 0; j < subtrahendList.Count; j++)
+                {
+                    if (minuendList[i].Equals(subtrahendList[j])) { beKept = false; }
+                }
+                if (beKept) { newList.Add(minuendList[i]); }
+            }
+            return newList;
         }
 
         public bool Remove(T targetElement)

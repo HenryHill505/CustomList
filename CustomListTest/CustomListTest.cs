@@ -178,6 +178,174 @@ namespace CustomListTest
         }
 
         [TestMethod]
+        public void OverloadMinus_IntegerSubtraHendListHasOneMatchingValue_DifferenceListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<int> minuendList = new CustomList<int> { 1, 1, 2, 2 };
+            CustomList<int> subtrahendList = new CustomList<int> { 2 };
+            CustomList<int> differenceList;
+            int expectedCount = 2;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(expectedCount, differenceList.Count);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_IntegerSubtraHendListHasOneMatchingValue_DifferenceListHasCorrectValues()
+        {
+            //Arrange
+            CustomList<int> minuendList = new CustomList<int> { 1, 1, 2, 2 };
+            CustomList<int> subtrahendList = new CustomList<int> { 2 };
+            CustomList<int> differenceList;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(1, differenceList[0]);
+            Assert.AreEqual(1, differenceList[1]);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_IntegerSubtrahendListHasOneMatchingValueWithDuplicates_DifferenceListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<int> minuendList = new CustomList<int> { 1, 1, 2, 2 };
+            CustomList<int> subtrahendList = new CustomList<int> { 2, 2 };
+            CustomList<int> differenceList;
+            int expectedCount = 2;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(expectedCount, differenceList.Count);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_IntegerSubtrahendListHasOneMatchingValueWithDuplicates_DifferenceListHasCorrectValues()
+        {
+            //Arrange
+            CustomList<int> minuendList = new CustomList<int> { 1, 1, 2, 2 };
+            CustomList<int> subtrahendList = new CustomList<int> { 2, 2 };
+            CustomList<int> differenceList;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(1, differenceList[0]);
+            Assert.AreEqual(1, differenceList[1]);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_IntegerSubtraHendListMatchesAllValues_DifferenceListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<int> minuendList = new CustomList<int> { 1, 1, 2, 2 };
+            CustomList<int> subtrahendList = new CustomList<int> { 1, 2 };
+            CustomList<int> differenceList;
+            int expectedCount = 0;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(expectedCount, differenceList.Count);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_IntegerSubtrahendListHasNoMatchingValues_DifferenceListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<int> minuendList = new CustomList<int> { 1, 1, 2, 2 };
+            CustomList<int> subtrahendList = new CustomList<int> { 3, 4, 5 };
+            CustomList<int> differenceList;
+            int expectedCount = 4;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(expectedCount, differenceList.Count);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_StringSubtraHendListHasOneMatchingValue_DifferenceListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<string> minuendList = new CustomList<string> { "one", "one", "two", "two" };
+            CustomList<string> subtrahendList = new CustomList<string> { "two" };
+            CustomList<string> differenceList;
+            int expectedCount = 2;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(expectedCount, differenceList.Count);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_StringSubtraHendListHasOneMatchingValue_DifferenceListHasCorrectValues()
+        {
+            //Arrange
+            CustomList<string> minuendList = new CustomList<string> { "one", "one", "two", "two" };
+            CustomList<string> subtrahendList = new CustomList<string> { "two" };
+            CustomList<string> differenceList;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual("one", differenceList[0]);
+            Assert.AreEqual("one", differenceList[1]);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_StringSubtrahendListHasOneMatchingValueWithDuplicates_DifferenceListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<string> minuendList = new CustomList<string> { "one", "one", "two", "two" };
+            CustomList<string> subtrahendList = new CustomList<string> { "two", "two" };
+            CustomList<string> differenceList;
+            int expectedCount = 2;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(expectedCount, differenceList.Count);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_StringSubtrahendListHasOneMatchingValueWithDuplicates_DifferenceListHasCorrectValues()
+        {
+            //Arrange
+            CustomList<string> minuendList = new CustomList<string> { "one", "one", "two", "two" };
+            CustomList<string> subtrahendList = new CustomList<string> { "two", "two" };
+            CustomList<string> differenceList;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual("one", differenceList[0]);
+            Assert.AreEqual("one", differenceList[1]);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_StringSubtraHendListMatchesAllValues_DifferenceListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<string> minuendList = new CustomList<string> { "one", "one", "two", "two" };
+            CustomList<string> subtrahendList = new CustomList<string> { "one", "two" };
+            CustomList<string> differenceList;
+            int expectedCount = 0;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(expectedCount, differenceList.Count);
+        }
+
+        [TestMethod]
+        public void OverloadMinus_StringSubtrahendListHasNoMatchingValues_DifferenceListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<string> minuendList = new CustomList<string> { "one", "one", "two", "two" };
+            CustomList<string> subtrahendList = new CustomList<string> { "three", "four", "five" };
+            CustomList<string> differenceList;
+            int expectedCount = 4;
+            //Act
+            differenceList = minuendList - subtrahendList;
+            //Assert
+            Assert.AreEqual(expectedCount, differenceList.Count);
+        }
+
+        [TestMethod]
         public void OverloadPlus_AddTwoIntegerListsOfEqualLength_SumListHasCorrectCount()
         {
             //Arrange
