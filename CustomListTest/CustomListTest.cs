@@ -1086,7 +1086,6 @@ namespace CustomListTest
             CustomList<string> customList1 = new CustomList<string>() { "one", "three", "five" };
             CustomList<string> customList2 = new CustomList<string>() { "two", "four", "six", "seven" };
             CustomList<string> resultList;
-            int expectedCount = 7;
             //Act
             resultList = customList1.Zip(customList2);
             //Assert

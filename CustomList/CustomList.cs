@@ -102,9 +102,26 @@ namespace CustomList
             return output.ToString();
         }
 
-        public string Zip(CustomList<T> zipList)
+        public CustomList<T> Zip(CustomList<T> zipList)
         {
+            CustomList<T> newList = new CustomList<T>();
+            int zipCounter;
 
+            if (this.Count >= zipList.Count)
+            {
+                zipCounter = this.Count;
+            }
+            else
+            {
+                zipCounter = zipList.Count;
+            }
+
+            for (int i = 0; i < zipCounter; i++)
+            {
+                if (i < this.Count) { newList.Add(this[i]); }
+                if (i < zipList.Count) { newList.Add(zipList[i]); }
+            }
+            return newList;
         }
     }
 
