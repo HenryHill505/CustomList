@@ -209,6 +209,40 @@ namespace CustomListTest
         }
 
         [TestMethod]
+        public void OverloadPlus_AddThreeIntegerListsOfEqualLength_SumListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<int> customList1 = new CustomList<int> { 1, 2, 3 };
+            CustomList<int> customList2 = new CustomList<int> { 4, 5, 6 };
+            CustomList<int> customList3 = new CustomList<int> { 7, 8, 9 };
+            int expectedCount = 9;
+            CustomList<int> sumList;
+            //Act
+            sumList = customList1 + customList2 + customList3;
+            //Assert
+            Assert.AreEqual(expectedCount, sumList.Count);
+        }
+
+        [TestMethod]
+        public void OverloadPlus_AddThreeIntegerListsOfEqualLength_SumListHasCorrectValuesAtCorrectIndices()
+        {
+            //Arrange
+            CustomList<int> customList1 = new CustomList<int> { 1, 2, 3 };
+            CustomList<int> customList2 = new CustomList<int> { 4, 5, 6 };
+            CustomList<int> customList3 = new CustomList<int> { 7, 8, 9 };
+            CustomList<int> sumList;
+            //Act
+            sumList = customList1 + customList2 + customList3;
+            //Assert
+            for (int i = 0; i <= 2; i++)
+            {
+                Assert.AreEqual(customList1[i], sumList[i]);
+                Assert.AreEqual(customList2[i], sumList[i + 3]);
+                Assert.AreEqual(customList3[i], sumList[i + 6]);
+            }
+        }
+
+        [TestMethod]
         public void OverloadPlus_AddTwoIntegerListsOfUnequalLength_SumListHasCorrectCount()
         {
             //Arrange
@@ -263,6 +297,40 @@ namespace CustomListTest
             {
                 Assert.AreEqual(customList1[i], sumList[i]);
                 Assert.AreEqual(customList2[i], sumList[i + 3]);
+            }
+        }
+
+        [TestMethod]
+        public void OverloadPlus_AddThreeStringListsOfEqualLength_SumListHasCorrectCount()
+        {
+            //Arrange
+            CustomList<string> customList1 = new CustomList<string> { "one", "two", "three" };
+            CustomList<string> customList2 = new CustomList<string> { "four", "five", "six" };
+            CustomList<string> customList3 = new CustomList<string> { "seven", "eight", "nine" };
+            int expectedCount = 9;
+            CustomList<string> sumList;
+            //Act
+            sumList = customList1 + customList2 + customList3;
+            //Assert
+            Assert.AreEqual(expectedCount, sumList.Count);
+        }
+
+        [TestMethod]
+        public void OverloadPlus_AddThreeStringListsOfEqualLength_SumListHasCorrectValuesAtCorrectIndices()
+        {
+            //Arrange
+            CustomList<string> customList1 = new CustomList<string> { "one", "two", "three" };
+            CustomList<string> customList2 = new CustomList<string> { "four", "five", "six" };
+            CustomList<string> customList3 = new CustomList<string> { "seven", "eight", "nine" };
+            CustomList<string> sumList;
+            //Act
+            sumList = customList1 + customList2 + customList3;
+            //Assert
+            for (int i = 0; i <= 2; i++)
+            {
+                Assert.AreEqual(customList1[i], sumList[i]);
+                Assert.AreEqual(customList2[i], sumList[i + 3]);
+                Assert.AreEqual(customList3[i], sumList[i + 6]);
             }
         }
 
