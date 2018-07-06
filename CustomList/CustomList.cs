@@ -64,6 +64,11 @@ namespace CustomList
             return GetEnumerator();
         }
 
+        public static CustomList<T> operator+(CustomList<T> customList1,CustomList<T> customList3)
+        {
+
+        }
+
         public bool Remove(T targetElement)
         {
             int currentCount = Count;
