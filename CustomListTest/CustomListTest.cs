@@ -1332,10 +1332,40 @@ namespace CustomListTest
         }
 
         [TestMethod]
+        public void Sort_OrderedListOfIntegers_ReturnListValuesAreLowestToHighest()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int> { 1, 2, 3, 4 };
+            CustomList<int> sortedList;
+            //Act
+            sortedList = customList.Sort();
+            //Assert
+            Assert.AreEqual(1, sortedList[0]);
+            Assert.AreEqual(2, sortedList[1]);
+            Assert.AreEqual(3, sortedList[2]);
+            Assert.AreEqual(4, sortedList[3]);
+        }
+
+        [TestMethod]
         public void Sort_JumbledListOfStrings_ReturnListValuesAreLowestToHighest()
         {
             //Arrange
             CustomList<string> customList = new CustomList<string> { "b", "a", "d", "c" };
+            CustomList<string> sortedList;
+            //Act
+            sortedList = customList.Sort();
+            //Assert
+            Assert.AreEqual("a", sortedList[0]);
+            Assert.AreEqual("b", sortedList[1]);
+            Assert.AreEqual("c", sortedList[2]);
+            Assert.AreEqual("d", sortedList[3]);
+        }
+
+        [TestMethod]
+        public void Sort_OrderedListOfStrings_ReturnListValuesAreLowestToHighest()
+        {
+            //Arrange
+            CustomList<string> customList = new CustomList<string> { "a", "b", "c", "d" };
             CustomList<string> sortedList;
             //Act
             sortedList = customList.Sort();

@@ -129,8 +129,6 @@ namespace CustomList
 
             for (int i = 0; i < this.Count; i++)
             {
-                //string currentValue = this[i].ToString();
-                //sortList.Add(int.Parse(currentValue));
                 sortList.Add(this[i]);
             }
 
