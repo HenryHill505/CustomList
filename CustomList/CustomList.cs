@@ -138,37 +138,35 @@ namespace CustomList
             return sortList;
         }
 
-        public void QuickSort(CustomList<T> List, int lo, int hi)
+        public void QuickSort(CustomList<T> List, int indexLo, int indexHi)
         {
-            if (lo < hi)
+            if (indexLo < indexHi)
             {
-                int currentPivot = Partition(List, lo, hi);
-                QuickSort(List, lo, currentPivot - 1);
-                QuickSort(List, currentPivot + 1, hi);
+                int currentPivot = Partition(List, indexLo, indexHi);
+                QuickSort(List, indexLo, currentPivot - 1);
+                QuickSort(List, currentPivot + 1, indexHi);
             }
         }
 
-        public int Partition(CustomList<T> List, int lo, int hi) 
+        public int Partition(CustomList<T> List, int indexLo, int indexHi) 
         {
-            T pivot = List[hi];
-            int index = lo - 1;
-            for (int j = lo; j <= hi - 1; j++)
+            T pivot = List[indexHi];
+            int index = indexLo - 1;
+            for (int j = indexLo; j <= indexHi - 1; j++)
             {
                 if (List[j].CompareTo(pivot) < 0)
                 {
                     index++;
-                    T holder1 = List[index];
-                    T holder2 = List[j];
+                    T innerTemp = List[index];
 
-                    List[index] = holder2;
-                    List[j] = holder1;
+                    List[index] = List[j];
+                    List[j] = innerTemp;
                 }
             }
-            T outerHolder1 = List[index + 1];
-            T outerHolder2 = List[hi];
+            T outerTemp = List[index + 1];
 
-            List[index + 1] = outerHolder2;
-            List[hi] = outerHolder1;
+            List[index + 1] = List[indexHi];
+            List[indexHi] = outerTemp;
             return index + 1;
         }
 
