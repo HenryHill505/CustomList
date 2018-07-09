@@ -10,7 +10,7 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            //List<int> testList = new List<int>();
+            List<int> testList = new List<int>();
             //testList.Add(1);
             //testList.Add(2);
             //testList.Add(1);

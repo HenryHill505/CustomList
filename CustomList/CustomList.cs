@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T> : IEnumerable<T>
+    public class CustomList<T> : IEnumerable<T> where T : IComparable
     {
         //member variables
         private T[] listArray = new T[0];
@@ -122,53 +122,55 @@ namespace CustomList
             return false;
         }
 
-        //public CustomList<T> Sort()
-        //{
-        //    //Uses QuickSort with the Lomuto partition scheme
-        //    CustomList<T> sortList = new CustomList<T>();
-        //    //for (int i = 0; i < this.Count; i++)
-        //    //{
-        //    //    string currentValue = this[i].ToString();
-        //    //    sortList.Add(int.Parse(currentValue));
-        //    //}
+        public CustomList<T> Sort()
+        {
+            //Uses QuickSort with the Lomuto partition scheme
+            CustomList<T> sortList = new CustomList<T>();
 
-        //    QuickSort(sortList, 0, this.Count - 1);
-        //    return sortList;
-        //}
+            for (int i = 0; i < this.Count; i++)
+            {
+                //string currentValue = this[i].ToString();
+                //sortList.Add(int.Parse(currentValue));
+                sortList.Add(this[i]);
+            }
 
-        //public void QuickSort(CustomList<T> List, int lo, int hi)
-        //{
-        //    if (lo < hi)
-        //    {
-        //        int currentPivot = Partition(List, lo, hi);
-        //        QuickSort(List, lo, currentPivot - 1);
-        //        QuickSort(List, currentPivot + 1, hi);
-        //    }
-        //}
+            QuickSort(sortList, 0, this.Count - 1);
+            return sortList;
+        }
 
-        //public int Partition(CustomList<T> List, int lo, int hi)
-        //{
-        //    T pivot = List[hi];
-        //    int index = lo - 1;
-        //    for (int j = lo; j <= hi -1; j++)
-        //    {
-        //        if (List[j].CompareTo(pivot) < 0)
-        //        {
-        //            index++;
-        //            T holder1 = List[index];
-        //            T holder2 = List[j];
+        public void QuickSort(CustomList<T> List, int lo, int hi)
+        {
+            if (lo < hi)
+            {
+                int currentPivot = Partition(List, lo, hi);
+                QuickSort(List, lo, currentPivot - 1);
+                QuickSort(List, currentPivot + 1, hi);
+            }
+        }
 
-        //            List[index] = holder2;
-        //            List[j] = holder1;
-        //        }
-        //    }
-        //    T outerHolder1 = List[index + 1];
-        //    T outerHolder2 = List[hi];
+        public int Partition(CustomList<T> List, int lo, int hi) 
+        {
+            T pivot = List[hi];
+            int index = lo - 1;
+            for (int j = lo; j <= hi - 1; j++)
+            {
+                if (List[j].CompareTo(pivot) < 0)
+                {
+                    index++;
+                    T holder1 = List[index];
+                    T holder2 = List[j];
 
-        //    List[index + 1] = outerHolder2;
-        //    List[hi] = outerHolder1;
-        //    return index + 1;
-        //}
+                    List[index] = holder2;
+                    List[j] = holder1;
+                }
+            }
+            T outerHolder1 = List[index + 1];
+            T outerHolder2 = List[hi];
+
+            List[index + 1] = outerHolder2;
+            List[hi] = outerHolder1;
+            return index + 1;
+        }
 
         public string ToString(string separator)
         {
