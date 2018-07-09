@@ -9,10 +9,8 @@ namespace CustomList
 {
     public class CustomList<T> : IEnumerable<T>
     {
-        //member variables
         private T[] listArray = new T[0];
 
-        //accessors
         public T this[int index]
         {
             get
@@ -39,7 +37,6 @@ namespace CustomList
             }
         }
 
-        //methods
         public void Add(T incomingElement)
         {
             int currentCount = Count;
