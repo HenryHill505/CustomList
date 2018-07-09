@@ -121,16 +121,9 @@ namespace CustomList
         }
 
         //Uses QuickSort with the Lomuto partition scheme
-        public CustomList<T> Sort()
+        public void Sort()
         {
-            CustomList<T> sortList = new CustomList<T>();
-
-            for (int i = 0; i < this.Count; i++)
-            {
-                sortList.Add(this[i]);
-            }
-            QuickSort(sortList, 0, this.Count - 1);
-            return sortList;
+            QuickSort(this, 0, this.Count - 1);
         }
 
         public void QuickSort(CustomList<T> List, int indexLo, int indexHi)

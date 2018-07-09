@@ -1321,14 +1321,13 @@ namespace CustomListTest
         {
             //Arrange
             CustomList<int> customList = new CustomList<int> { 2, 1, 4, 3 };
-            CustomList<int> sortedList;
             //Act
-            sortedList = customList.Sort();
+            customList.Sort();
             //Assert
-            Assert.AreEqual(1, sortedList[0]);
-            Assert.AreEqual(2, sortedList[1]);
-            Assert.AreEqual(3, sortedList[2]);
-            Assert.AreEqual(4, sortedList[3]);
+            Assert.AreEqual(1, customList[0]);
+            Assert.AreEqual(2, customList[1]);
+            Assert.AreEqual(3, customList[2]);
+            Assert.AreEqual(4, customList[3]);
         }
 
         [TestMethod]
@@ -1336,14 +1335,13 @@ namespace CustomListTest
         {
             //Arrange
             CustomList<int> customList = new CustomList<int> { 1, 2, 3, 4 };
-            CustomList<int> sortedList;
             //Act
-            sortedList = customList.Sort();
+            customList.Sort();
             //Assert
-            Assert.AreEqual(1, sortedList[0]);
-            Assert.AreEqual(2, sortedList[1]);
-            Assert.AreEqual(3, sortedList[2]);
-            Assert.AreEqual(4, sortedList[3]);
+            Assert.AreEqual(1, customList[0]);
+            Assert.AreEqual(2, customList[1]);
+            Assert.AreEqual(3, customList[2]);
+            Assert.AreEqual(4, customList[3]);
         }
 
         [TestMethod]
@@ -1351,14 +1349,13 @@ namespace CustomListTest
         {
             //Arrange
             CustomList<string> customList = new CustomList<string> { "b", "a", "d", "c" };
-            CustomList<string> sortedList;
             //Act
-            sortedList = customList.Sort();
+            customList.Sort();
             //Assert
-            Assert.AreEqual("a", sortedList[0]);
-            Assert.AreEqual("b", sortedList[1]);
-            Assert.AreEqual("c", sortedList[2]);
-            Assert.AreEqual("d", sortedList[3]);
+            Assert.AreEqual("a", customList[0]);
+            Assert.AreEqual("b", customList[1]);
+            Assert.AreEqual("c", customList[2]);
+            Assert.AreEqual("d", customList[3]);
         }
 
         [TestMethod]
@@ -1366,14 +1363,13 @@ namespace CustomListTest
         {
             //Arrange
             CustomList<string> customList = new CustomList<string> { "a", "b", "c", "d" };
-            CustomList<string> sortedList;
             //Act
-            sortedList = customList.Sort();
+            customList.Sort();
             //Assert
-            Assert.AreEqual("a", sortedList[0]);
-            Assert.AreEqual("b", sortedList[1]);
-            Assert.AreEqual("c", sortedList[2]);
-            Assert.AreEqual("d", sortedList[3]);
+            Assert.AreEqual("a", customList[0]);
+            Assert.AreEqual("b", customList[1]);
+            Assert.AreEqual("c", customList[2]);
+            Assert.AreEqual("d", customList[3]);
         }
 
         [TestMethod]

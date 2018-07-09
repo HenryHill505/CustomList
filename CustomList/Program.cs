@@ -10,7 +10,14 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            List<int> testList = new List<int>();
+            List<string> testList = new List<string>() { "b", "a", "c", "d", "e" };
+            testList.Sort();
+            foreach (string element in testList)
+            {
+                Console.WriteLine(element);
+            }
+            Console.ReadLine();
+
             //testList.Add(1);
             //testList.Add(2);
             //testList.Add(1);
@@ -61,14 +68,14 @@ namespace CustomList
             //}
             //Console.ReadLine();
 
-            string[] testArray = { "b", "a", "c", "d", "f", "e" };
-            Array.Sort(testArray);
-            
-            foreach (string el in testArray)
-            {
-                Console.WriteLine(el);
-            }
-            Console.ReadLine();
+            //string[] testArray = { "b", "a", "c", "d", "f", "e" };
+            //Array.Sort(testArray);
+
+            //foreach (string el in testArray)
+            //{
+            //    Console.WriteLine(el);
+            //}
+            //Console.ReadLine();
         }
     }
 }
