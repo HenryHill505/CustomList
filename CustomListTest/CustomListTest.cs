@@ -206,6 +206,24 @@ namespace CustomListTest
         }
 
         [TestMethod]
+        public void CountAfterAdd_MultipleStrings_ReturnNumberOfIntegers()
+        {
+            //Arrage
+            string value1 = "one";
+            string value2 = "two";
+            string value3 = "three";
+            int numberOfValues = 3;
+            CustomList<string> customList = new CustomList<string>();
+
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+            //Assert
+            Assert.AreEqual(numberOfValues, customList.Count);
+        }
+
+        [TestMethod]
         public void OverloadMinus_IntegerSubtraHendListHasOneMatchingValue_DifferenceListHasCorrectCount()
         {
             //Arrange
