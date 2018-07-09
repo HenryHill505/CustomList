@@ -142,13 +142,20 @@ namespace CustomList
             int index = indexLo - 1;
             for (int j = indexLo; j <= indexHi - 1; j++)
             {
-                if (Comparer<T>.Default.Compare(List[j], pivot) < 0)
+                try
                 {
-                    index++;
-                    T innerTemporary = List[index];
+                    if (Comparer<T>.Default.Compare(List[j], pivot) < 0)
+                    {
+                        index++;
+                        T innerTemporary = List[index];
 
-                    List[index] = List[j];
-                    List[j] = innerTemporary;
+                        List[index] = List[j];
+                        List[j] = innerTemporary;
+                    }
+                }
+                catch (ArgumentException exception)
+                {
+                    throw (exception);
                 }
             }
             T outerTemporary = List[index + 1];

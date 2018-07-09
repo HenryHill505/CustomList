@@ -13,7 +13,7 @@ namespace CustomList
             Object object1 = new Object();
             Object object2 = new Object();
             Object object3 = new Object();
-            CustomList<Object> testList = new CustomList<Object>() { object2, object1, object3 };
+            CustomList<Object> testList = new CustomList<Object>() { object2, object1, object3 } ;
             testList.Sort();
             foreach (string element in testList)
             {

@@ -34,32 +34,32 @@ namespace CustomListTest
             Assert.AreEqual(value2, customList[1]);
         }
 
-        //[TestMethod]
-        //public void Add_SingleObject_ReturnSingleObject()
-        //{
-        //    //Arrange
-        //    CustomList<Object> customList = new CustomList<Object>();
-        //    Object value = new Object();
-        //    //Act
-        //    customList.Add(value);
-        //    //Assert
-        //    Assert.AreEqual(value, customList[0]);
-        //}
+        [TestMethod]
+        public void Add_SingleObject_ReturnSingleObject()
+        {
+            //Arrange
+            CustomList<Object> customList = new CustomList<Object>();
+            Object value = new Object();
+            //Act
+            customList.Add(value);
+            //Assert
+            Assert.AreEqual(value, customList[0]);
+        }
 
-        //[TestMethod]
-        //public void Add_TwoObjects_ReturnBothObjects()
-        //{
-        //    Arrange
-        //    CustomList<Object> customList = new CustomList<Object>();
-        //    Object value1 = new Object();
-        //    Object value2 = new Object();
-        //    Act
-        //    customList.Add(value1);
-        //    customList.Add(value2);
-        //    Assert
-        //    Assert.AreEqual(value1, customList[0]);
-        //    Assert.AreEqual(value2, customList[1]);
-        //}
+        [TestMethod]
+        public void Add_TwoObjects_ReturnBothObjects()
+        {
+            //Arrange
+            CustomList<Object> customList = new CustomList<Object>();
+            Object value1 = new Object();
+            Object value2 = new Object();
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+        }
 
         [TestMethod]
         public void Add_SingleString_ReturnSingleInteger()
@@ -87,8 +87,6 @@ namespace CustomListTest
             Assert.AreEqual(value1, customList[0]);
             Assert.AreEqual(value2, customList[1]);
         }
-
-        //Need to implement IEnumerable or these tests will prevent the other tests from running
 
         [TestMethod]
         public void AddViaBrace_SingleString_ReturnSingleString()
@@ -977,9 +975,6 @@ namespace CustomListTest
             Assert.IsFalse(didRemoveSucceed);
         }
 
-
-
-
         [TestMethod]
         public void Remove_SingleStringAtEnd_CheckIndex0()
         {
@@ -1412,25 +1407,25 @@ namespace CustomListTest
             Assert.AreEqual(expected, actual);
         }
 
-        //[TestMethod]
-        //public void ToString_ThreeObjects_CommaAndSpaceSeparatedString()
-        //{
-        //    //Arrange
-        //    Object value1 = "one";
-        //    Object value2 = "two";
-        //    Object value3 = "three";
-        //    string separator = ", ";
-        //    string expected = "one, two, three";
-        //    string actual;
-        //    CustomList<Object> customList = new CustomList<Object>();
-        //    //Act
-        //    customList.Add(value1);
-        //    customList.Add(value2);
-        //    customList.Add(value3);
-        //    actual = customList.ToString(separator);
-        //    //Assert
-        //    Assert.AreEqual(expected, actual);
-        //}
+        [TestMethod]
+        public void ToString_ThreeObjects_CommaAndSpaceSeparatedString()
+        {
+            //Arrange
+            Object value1 = "one";
+            Object value2 = "two";
+            Object value3 = "three";
+            string separator = ", ";
+            string expected = "one, two, three";
+            string actual;
+            CustomList<Object> customList = new CustomList<Object>();
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            customList.Add(value3);
+            actual = customList.ToString(separator);
+            //Assert
+            Assert.AreEqual(expected, actual);
+        }
 
         [TestMethod]
 
