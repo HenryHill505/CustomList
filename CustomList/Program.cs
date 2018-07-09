@@ -48,16 +48,25 @@ namespace CustomList
             //    3
             //*/
 
-            CustomList<int> customList = new CustomList<int>() {2, 5, 8, 3, 9, 1, 6, 7, 4, 9 };
-            foreach (int element in customList)
+            //CustomList<int> customList = new CustomList<int>() {2, 5, 8, 3, 9, 1, 6, 7, 4, 9 };
+            //foreach (int element in customList)
+            //{
+            //    Console.WriteLine(element);
+            //}
+            //Console.WriteLine("Sort Now");
+            //CustomList<int> sortedList = customList.Sort();
+            //foreach (int element in sortedList)
+            //{
+            //    Console.WriteLine(element);
+            //}
+            //Console.ReadLine();
+
+            string[] testArray = { "b", "a", "c", "d", "f", "e" };
+            Array.Sort(testArray);
+            
+            foreach (string el in testArray)
             {
-                Console.WriteLine(element);
-            }
-            Console.WriteLine("Sort Now");
-            CustomList<int> sortedList = customList.Sort();
-            foreach (int element in sortedList)
-            {
-                Console.WriteLine(element);
+                Console.WriteLine(el);
             }
             Console.ReadLine();
         }

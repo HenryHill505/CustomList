@@ -1316,20 +1316,20 @@ namespace CustomListTest
             Assert.IsFalse(didRemoveSucceed);
         }
 
-        [TestMethod]
-        public void Sort_JumbledListOfIntegers_ReturnListValuesAreLowestToHighest()
-        {
-            //Arrange
-            CustomList<int> customList = new CustomList<int> { 2, 1, 4, 3 };
-            CustomList<int> sortedList;
-            //Act
-            sortedList = customList.Sort();
-            //Assert
-            Assert.AreEqual(1, sortedList[0]);
-            Assert.AreEqual(2, sortedList[1]);
-            Assert.AreEqual(3, sortedList[2]);
-            Assert.AreEqual(4, sortedList[3]);
-        }
+        //[TestMethod]
+        //public void Sort_JumbledListOfIntegers_ReturnListValuesAreLowestToHighest()
+        //{
+        //    //Arrange
+        //    CustomList<int> customList = new CustomList<int> { 2, 1, 4, 3 };
+        //    CustomList<int> sortedList;
+        //    //Act
+        //    sortedList = customList.Sort();
+        //    //Assert
+        //    Assert.AreEqual(1, sortedList[0]);
+        //    Assert.AreEqual(2, sortedList[1]);
+        //    Assert.AreEqual(3, sortedList[2]);
+        //    Assert.AreEqual(4, sortedList[3]);
+        //}
 
         //[TestMethod]
         //public void Sort_JumbledListOfStrings_ReturnListValuesAreLowestToHighest()

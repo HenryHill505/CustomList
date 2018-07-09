@@ -56,7 +56,11 @@ namespace CustomList
         public IEnumerator<T> GetEnumerator()
         {
             //return listArray.GetEnumerator();
-            return new CustomListEnumerator<T>(this);
+            //return new CustomListEnumerator<T>(this);
+            for (int i = 0; i < Count; i++)
+            {
+                yield return listArray[i];
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -118,53 +122,53 @@ namespace CustomList
             return false;
         }
 
-        public CustomList<int> Sort()
-        {
-            //Uses QuickSort with the Lomuto partition scheme
-            CustomList<int> sortList = new CustomList<int>();
-            for (int i = 0; i < this.Count; i++)
-            {
-                string currentValue = this[i].ToString();
-                sortList.Add(int.Parse(currentValue));
-            }
+        //public CustomList<T> Sort()
+        //{
+        //    //Uses QuickSort with the Lomuto partition scheme
+        //    CustomList<T> sortList = new CustomList<T>();
+        //    //for (int i = 0; i < this.Count; i++)
+        //    //{
+        //    //    string currentValue = this[i].ToString();
+        //    //    sortList.Add(int.Parse(currentValue));
+        //    //}
 
-            QuickSort(sortList, 0, this.Count - 1);
-            return sortList;
-        }
+        //    QuickSort(sortList, 0, this.Count - 1);
+        //    return sortList;
+        //}
 
-        public void QuickSort(CustomList<int> List, int lo, int hi)
-        {
-            if (lo < hi)
-            {
-                int currentPivot = Partition(List, lo, hi);
-                QuickSort(List, lo, currentPivot - 1);
-                QuickSort(List, currentPivot + 1, hi);
-            }
-        }
+        //public void QuickSort(CustomList<T> List, int lo, int hi)
+        //{
+        //    if (lo < hi)
+        //    {
+        //        int currentPivot = Partition(List, lo, hi);
+        //        QuickSort(List, lo, currentPivot - 1);
+        //        QuickSort(List, currentPivot + 1, hi);
+        //    }
+        //}
 
-        public int Partition(CustomList<int> List, int lo, int hi)
-        {
-            int pivot = List[hi];
-            int index = lo - 1;
-            for (int j = lo; j <= hi -1; j++)
-            {
-                if (List[j] < pivot)
-                {
-                    index++;
-                    int holder1 = List[index];
-                    int holder2 = List[j];
+        //public int Partition(CustomList<T> List, int lo, int hi)
+        //{
+        //    T pivot = List[hi];
+        //    int index = lo - 1;
+        //    for (int j = lo; j <= hi -1; j++)
+        //    {
+        //        if (List[j].CompareTo(pivot) < 0)
+        //        {
+        //            index++;
+        //            T holder1 = List[index];
+        //            T holder2 = List[j];
 
-                    List[index] = holder2;
-                    List[j] = holder1;
-                }
-            }
-            int outerHolder1 = List[index + 1];
-            int outerHolder2 = List[hi];
+        //            List[index] = holder2;
+        //            List[j] = holder1;
+        //        }
+        //    }
+        //    T outerHolder1 = List[index + 1];
+        //    T outerHolder2 = List[hi];
 
-            List[index + 1] = outerHolder2;
-            List[hi] = outerHolder1;
-            return index + 1;
-        }
+        //    List[index + 1] = outerHolder2;
+        //    List[hi] = outerHolder1;
+        //    return index + 1;
+        //}
 
         public string ToString(string separator)
         {
@@ -204,50 +208,50 @@ namespace CustomList
         }
     }
 
-    public class CustomListEnumerator<T> :  IEnumerator<T>
-    {
-        CustomList<T> parentList;
-        public int currentIndex = -1;
+//    public class CustomListEnumerator<T> :  IEnumerator<T>
+//    {
+//        CustomList<T> parentList;
+//        public int currentIndex = -1;
 
-        public CustomListEnumerator(CustomList<T> customList)
-        {
-            parentList = customList;
-        }
+//        public CustomListEnumerator(CustomList<T> customList)
+//        {
+//            parentList = customList;
+//        }
 
-        public T Current
-        {
-            get
-            {
-                return parentList[currentIndex];
-            }
-        }
+//        public T Current
+//        {
+//            get
+//            {
+//                return parentList[currentIndex];
+//            }
+//        }
 
-        object IEnumerator.Current
-        {
-            get { return Current; }
-        }
+//        object IEnumerator.Current
+//        {
+//            get { return Current; }
+//        }
 
-        public bool MoveNext()
-        {
-            currentIndex++;
-            if (currentIndex < parentList.Count)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+//        public bool MoveNext()
+//        {
+//            currentIndex++;
+//            if (currentIndex < parentList.Count)
+//            {
+//                return true;
+//            }
+//            else
+//            {
+//                return false;
+//            }
+//        }
 
-        public void Dispose()
-        {
+//        public void Dispose()
+//        {
             
-        }
+//        }
 
-        public void Reset()
-        {
-            currentIndex = -1;
-        }
-    }
+//        public void Reset()
+//        {
+//            currentIndex = -1;
+//        }
+//    }
 }
