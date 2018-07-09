@@ -137,6 +137,36 @@ namespace CustomListTest
         }
 
         [TestMethod]
+        public void Indexer_TwoIntegers_IndicesHaveTheCorrectValues()
+        {
+            //Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int value1 = 1;
+            int value2 = 2;
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+        }
+
+        [TestMethod]
+        public void Indexer_TwoStrings_IndicesHaveTheCorrectValues()
+        {
+            //Arrange
+            CustomList<string> customList = new CustomList<string>();
+            string value1 = "a";
+            string value2 = "b";
+            //Act
+            customList.Add(value1);
+            customList.Add(value2);
+            //Assert
+            Assert.AreEqual(value1, customList[0]);
+            Assert.AreEqual(value2, customList[1]);
+        }
+
+        [TestMethod]
         public void Iterate_MultipleIntegers_CheckEachIndex()
         {
             //Arrange
