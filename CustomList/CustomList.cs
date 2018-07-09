@@ -55,8 +55,6 @@ namespace CustomList
 
         public IEnumerator<T> GetEnumerator()
         {
-            //return listArray.GetEnumerator();
-            //return new CustomListEnumerator<T>(this);
             for (int i = 0; i < Count; i++)
             {
                 yield return listArray[i];
@@ -122,16 +120,15 @@ namespace CustomList
             return false;
         }
 
+        //Uses QuickSort with the Lomuto partition scheme
         public CustomList<T> Sort()
         {
-            //Uses QuickSort with the Lomuto partition scheme
             CustomList<T> sortList = new CustomList<T>();
 
             for (int i = 0; i < this.Count; i++)
             {
                 sortList.Add(this[i]);
             }
-
             QuickSort(sortList, 0, this.Count - 1);
             return sortList;
         }
