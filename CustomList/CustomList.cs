@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T> : IEnumerable<T> where T : IComparable
+    public class CustomList<T> : IEnumerable<T>
     {
         //member variables
         private T[] listArray = new T[0];
@@ -142,19 +142,19 @@ namespace CustomList
             int index = indexLo - 1;
             for (int j = indexLo; j <= indexHi - 1; j++)
             {
-                if (List[j].CompareTo(pivot) < 0)
+                if (Comparer<T>.Default.Compare(List[j], pivot) < 0)
                 {
                     index++;
-                    T innerTemp = List[index];
+                    T innerTemporary = List[index];
 
                     List[index] = List[j];
-                    List[j] = innerTemp;
+                    List[j] = innerTemporary;
                 }
             }
-            T outerTemp = List[index + 1];
+            T outerTemporary = List[index + 1];
 
             List[index + 1] = List[indexHi];
-            List[indexHi] = outerTemp;
+            List[indexHi] = outerTemporary;
             return index + 1;
         }
 
