@@ -15,12 +15,26 @@ namespace CustomList
         {
             get
             {
-                return listArray[index];
+                if (index < Count)
+                {
+                    return listArray[index];
+                }
+                else
+                {
+                    throw (new IndexOutOfRangeException());
+                }
             }
 
             set
             {
-                listArray[index] = value;
+                if (index < Count)
+                {
+                    listArray[index] = value;
+                }
+                else
+                {
+                    throw (new IndexOutOfRangeException());
+                }
             }
         }
 
