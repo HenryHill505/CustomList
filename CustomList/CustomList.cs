@@ -162,17 +162,13 @@ namespace CustomList
             return index + 1;
         }
 
-        public string ToString(string separator)
+        public override string ToString()
         {
             StringBuilder output = new StringBuilder();
             int currentCount = Count;
             for (int i = 0; i < currentCount; i++)
             {
                 output.Append(listArray[i]);
-                if (i + 1 < currentCount)
-                {
-                    output.Append(separator);
-                }
             }
             return output.ToString();
         }

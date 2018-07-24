@@ -1422,15 +1422,15 @@ namespace CustomListTest
             int value1 = 1;
             int value2 = 2;
             int value3 = 3;
-            string separator = ", ";
-            string expected = "1, 2, 3";
+            
+            string expected = "123";
             string actual;
             CustomList<int> customList = new CustomList<int>();
             //Act
             customList.Add(value1);
             customList.Add(value2);
             customList.Add(value3);
-            actual = customList.ToString(separator);
+            actual = customList.ToString();
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -1442,15 +1442,14 @@ namespace CustomListTest
             string value1 = "one";
             string value2 = "two";
             string value3 = "three";
-            string separator = ", ";
-            string expected = "one, two, three";
+            string expected = "onetwothree";
             string actual;
             CustomList<string> customList = new CustomList<string>();
             //Act
             customList.Add(value1);
             customList.Add(value2);
             customList.Add(value3);
-            actual = customList.ToString(separator);
+            actual = customList.ToString();
             //Assert
             Assert.AreEqual(expected, actual);
         }
@@ -1462,15 +1461,14 @@ namespace CustomListTest
             Object value1 = "one";
             Object value2 = "two";
             Object value3 = "three";
-            string separator = ", ";
-            string expected = "one, two, three";
+            string expected = "onetwothree";
             string actual;
             CustomList<Object> customList = new CustomList<Object>();
             //Act
             customList.Add(value1);
             customList.Add(value2);
             customList.Add(value3);
-            actual = customList.ToString(separator);
+            actual = customList.ToString();
             //Assert
             Assert.AreEqual(expected, actual);
         }
